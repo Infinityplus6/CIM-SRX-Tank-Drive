@@ -4,8 +4,7 @@
 
 package frc.robot;
 
-import frc.robot.Util.Razer2Wrapper;
-
+import frc.robot.Util.RazerXboxWrapper;
 import frc.robot.subsystems.DifferentialSubsystem;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.RunCommand;
@@ -19,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 public class RobotContainer {
   
   private final DifferentialSubsystem m_differentialSubsystem = new DifferentialSubsystem();
-  private final Razer2Wrapper driverController = new Razer2Wrapper(0, 0);
+  private final RazerXboxWrapper driverController = new RazerXboxWrapper(0);
 
   public RobotContainer() {
     configureBindings();
