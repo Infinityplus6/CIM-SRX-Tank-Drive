@@ -6,7 +6,6 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -25,13 +24,13 @@ public class DifferentialSubsystem extends SubsystemBase {
   }
 
   public void driveLeft(double speed){
-    m_leftMotor1.set(TalonSRXControlMode.PercentOutput, speed);
-    m_leftMotor2.set(TalonSRXControlMode.PercentOutput, speed);
+    m_leftMotor1.set(TalonSRXControlMode.PercentOutput, -1 * speed);
+    m_leftMotor2.set(TalonSRXControlMode.PercentOutput, -1 * speed);
   }
 
   public void driveRight(double speed){
-    m_rightMotor1.set(TalonSRXControlMode.PercentOutput, -1 * speed);
-    m_rightMotor2.set(TalonSRXControlMode.PercentOutput, -1 * speed);
+    m_rightMotor1.set(TalonSRXControlMode.PercentOutput, speed);
+    m_rightMotor2.set(TalonSRXControlMode.PercentOutput, speed);
   }
 
   public void stopMotors(){
