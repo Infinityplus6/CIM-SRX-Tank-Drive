@@ -24,13 +24,13 @@ public class DifferentialSubsystem extends SubsystemBase {
   }
 
   public void driveLeft(double speed){
-    m_leftMotor1.set(TalonSRXControlMode.PercentOutput, -1 * speed);
-    m_leftMotor2.set(TalonSRXControlMode.PercentOutput, -1 * speed);
+    m_leftMotor1.set(TalonSRXControlMode.PercentOutput, speed);
+    m_leftMotor2.set(TalonSRXControlMode.PercentOutput, speed);
   }
 
   public void driveRight(double speed){
-    m_rightMotor1.set(TalonSRXControlMode.PercentOutput, speed);
-    m_rightMotor2.set(TalonSRXControlMode.PercentOutput, speed);
+    m_rightMotor1.set(TalonSRXControlMode.PercentOutput, -1 * speed);
+    m_rightMotor2.set(TalonSRXControlMode.PercentOutput, -1 * speed);
   }
 
   public void stopMotors(){
