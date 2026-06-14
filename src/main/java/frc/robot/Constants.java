@@ -16,6 +16,7 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+  // This inner class holds all the constants for the tank drive system.
   public final static class TankDriveConstants {
     public static final int kLeftMotor1ID = 1;
     public static final int kLeftMotor2ID = 2;

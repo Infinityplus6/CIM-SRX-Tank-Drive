@@ -6,6 +6,9 @@ package frc.robot;
 
 import frc.robot.Util.RazerXboxWrapper;
 import frc.robot.subsystems.DifferentialSubsystem;
+
+import org.littletonrobotics.junction.Logger;
+
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 
@@ -17,22 +20,33 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
  */
 public class RobotContainer {
   
+  // instances
   private final DifferentialSubsystem m_differentialSubsystem = new DifferentialSubsystem();
   private final RazerXboxWrapper driverController = new RazerXboxWrapper(0);
 
+  // contructor
   public RobotContainer() {
     configureBindings();
   }
 
-  
+  // bindings
   private void configureBindings() {
+
+    // Drive binding, uses both joysticks of controller for the tank drive.
     m_differentialSubsystem.setDefaultCommand(new RunCommand(
       () ->{
         m_differentialSubsystem.driveLeft(driverController.getLeftY());
         m_differentialSubsystem.driveRight(driverController.getRightY());
       }, m_differentialSubsystem));
 
+    // binding for emergency stop (A)
     driverController.A.onTrue(Commands.runOnce(() -> m_differentialSubsystem.stopMotors()));
   }
 
+  // logging function for controller inputs
+  public void logInputs(){
+    Logger.recordOutput("Controller/Left Y", driverController.getLeftY());
+    Logger.recordOutput("Controller/Right Y", driverController.getRightY());
+    Logger.recordOutput("Controller/A", driverController.A.getAsBoolean());
+  }
 }
