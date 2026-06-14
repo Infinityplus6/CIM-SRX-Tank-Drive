@@ -143,6 +143,7 @@ Responsible for:
 * Additional mechanisms such as elevators, intakes, shooters, and autonomous routines are not included.
 * Most Razer paddle buttons (M1-M6) are not exposed separately through standard XInput APIs and are typically remapped to existing controller buttons.
 * Motor inversion may need adjustment depending on gearbox and drivetrain orientation.
+* Has Logging for all 4 motor outputs, joysticks, and e-stop button (A), using AdvantageKit
 
 ## Future Improvements
 
